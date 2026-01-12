@@ -54,7 +54,7 @@ class IMPORT_OT_egg(bpy.types.Operator, ImportHelper):
         context.search_dir = self.directory
         roots = []
 
-        for file in self.files:
+        for file in list(self.files):
             path = os.path.join(self.directory, file.name)
             root = context.read_file(path)
             roots.append(root)
